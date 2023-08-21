@@ -1,0 +1,563 @@
+self-written testing cases
+
+First test the 5 required fields that are not filled in
+
+===========================without retailer=================================================
+1、 
+    in parameter
+
+    {
+      "purchaseDate": "2022-01-01",
+      "purchaseTime": "13:01",
+      "items": [
+        {
+          "shortDescription": "Mountain Dew 12PK",
+          "price": "6.49"
+        },{
+          "shortDescription": "Emils Cheese Pizza",
+          "price": "12.25"
+        },{
+          "shortDescription": "Knorr Creamy Chicken",
+          "price": "1.26"
+        },{
+          "shortDescription": "Doritos Nacho Cheese",
+          "price": "3.35"
+        },{
+          "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
+          "price": "12.00"
+        }
+      ],
+      "total": "35.35"
+    }
+
+    output
+
+    {
+        "msg": "The receipt is invalid"
+    }
+===========================without retailer=================================================
+
+===========================without purchaseDate=================================================
+2、
+    in parameter
+
+    {
+      "retailer": "Target",
+      "purchaseTime": "13:01",
+      "items": [
+        {
+          "shortDescription": "Mountain Dew 12PK",
+          "price": "6.49"
+        },{
+          "shortDescription": "Emils Cheese Pizza",
+          "price": "12.25"
+        },{
+          "shortDescription": "Knorr Creamy Chicken",
+          "price": "1.26"
+        },{
+          "shortDescription": "Doritos Nacho Cheese",
+          "price": "3.35"
+        },{
+          "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
+          "price": "12.00"
+        }
+      ],
+      "total": "35.35"
+    }
+
+    output
+
+    {
+        "msg": "The receipt is invalid"
+    }
+
+===========================without purchaseDate=================================================
+
+===========================without purchaseTime=================================================
+3、
+    in parameter
+
+    {
+      "retailer": "Target",
+      "purchaseDate": "2022-01-01",
+      "items": [
+        {
+          "shortDescription": "Mountain Dew 12PK",
+          "price": "6.49"
+        },{
+          "shortDescription": "Emils Cheese Pizza",
+          "price": "12.25"
+        },{
+          "shortDescription": "Knorr Creamy Chicken",
+          "price": "1.26"
+        },{
+          "shortDescription": "Doritos Nacho Cheese",
+          "price": "3.35"
+        },{
+          "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
+          "price": "12.00"
+        }
+      ],
+      "total": "35.35"
+    }
+    
+    output
+
+    {
+        "msg": "The receipt is invalid"
+    }
+===========================without purchaseTime=================================================
+
+===========================without items=================================================
+4、
+    input parameter
+
+    {
+      "retailer": "Target",
+      "purchaseDate": "2022-01-01",
+      "purchaseTime": "13:01",
+      "items": [
+
+      ],
+      "total": "35.35"
+    }
+    
+    output
+
+    {
+        "msg": "The receipt is invalid"
+    }
+
+
+===========================without items=================================================
+
+===========================without total=================================================
+5、
+    in parameter
+
+    {
+      "retailer": "Target",
+      "purchaseDate": "2022-01-01",
+      "purchaseTime": "13:01",
+      "items": [
+        {
+          "shortDescription": "Mountain Dew 12PK",
+          "price": "6.49"
+        },{
+          "shortDescription": "Emils Cheese Pizza",
+          "price": "12.25"
+        },{
+          "shortDescription": "Knorr Creamy Chicken",
+          "price": "1.26"
+        },{
+          "shortDescription": "Doritos Nacho Cheese",
+          "price": "3.35"
+        },{
+          "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
+          "price": "12.00"
+        }
+      ]
+    }
+    
+    output
+
+    {
+        "msg": "The receipt is invalid"
+    }
+
+
+===========================without total=================================================
+
+*******************************************other casees*******************************************
+
+******************************** purchaseDate use non yyyy-mm-dd format ********************************
+6、
+    in parameter
+
+    {
+      "retailer": "Target",
+      "purchaseDate": "2022/01/01",
+      "purchaseTime": "13:01",
+      "items": [
+        {
+          "shortDescription": "Mountain Dew 12PK",
+          "price": "6.49"
+        },{
+          "shortDescription": "Emils Cheese Pizza",
+          "price": "12.25"
+        },{
+          "shortDescription": "Knorr Creamy Chicken",
+          "price": "1.26"
+        },{
+          "shortDescription": "Doritos Nacho Cheese",
+          "price": "3.35"
+        },{
+          "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
+          "price": "12.00"
+        }
+      ],
+      "total": "35.35"
+    }
+	
+    output
+
+    {
+        "msg": "The receipt is invalid"
+    }
+
+
+******************************** purchaseDate use non yyyy-mm-dd format ********************************
+
+******************************** purchaseTime use non hh:mm format ********************************
+7、
+    in parameter
+
+    {
+      "retailer": "Target",
+      "purchaseDate": "2022-01-01",
+      "purchaseTime": "13:01:00",
+      "items": [
+        {
+          "shortDescription": "Mountain Dew 12PK",
+          "price": "6.49"
+        },{
+          "shortDescription": "Emils Cheese Pizza",
+          "price": "12.25"
+        },{
+          "shortDescription": "Knorr Creamy Chicken",
+          "price": "1.26"
+        },{
+          "shortDescription": "Doritos Nacho Cheese",
+          "price": "3.35"
+        },{
+          "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
+          "price": "12.00"
+        }
+      ],
+      "total": "35.35"
+    }
+    
+    output
+
+    {
+        "msg": "The receipt is invalid"
+    }
+
+
+******************************** purchaseTime use non hh:mm format ********************************
+
+******************************** items use non array format ********************************
+8、
+    in parameter
+
+    {
+      "retailer": "Target",
+      "purchaseDate": "2022-01-01",
+      "purchaseTime": "13:01",
+      "items":
+        {
+          "shortDescription": "Mountain Dew 12PK",
+          "price": "6.49"
+        },
+      "total": "35.35"
+    }
+
+    output
+
+    {
+        "msg": "The receipt is invalid"
+    }
+
+
+******************************** items use non array format ********************************
+
+******************************** items-shortDescription contains special character(first record) ********************************
+9、
+    in parameter
+
+    {
+      "retailer": "Target",
+      "purchaseDate": "2022-01-01",
+      "purchaseTime": "13:01",
+      "items": [
+        {
+          "shortDescription": "Mountain& Dew 12PK#",
+          "price": "6.49"
+        },{
+          "shortDescription": "Emils Cheese Pizza",
+          "price": "12.25"
+        },{
+          "shortDescription": "Knorr Creamy Chicken",
+          "price": "1.26"
+        },{
+          "shortDescription": "Doritos Nacho Cheese",
+          "price": "3.35"
+        },{
+          "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
+          "price": "12.00"
+        }
+      ],
+      "total": "35.35"
+    }
+
+    output
+
+    {
+        "msg": "The receipt is invalid"
+    }
+
+
+******************************** items-shortDescription contains special character(first record) ********************************
+
+******************************** items-price more than 2 decimal places ********************************
+10、
+    in paramter
+
+    {
+      "retailer": "Target",
+      "purchaseDate": "2022-01-01",
+      "purchaseTime": "13:01",
+      "items": [
+        {
+          "shortDescription": "Mountain Dew 12PK",
+          "price": "6.491"
+        },{
+          "shortDescription": "Emils Cheese Pizza",
+          "price": "12.25"
+        },{
+          "shortDescription": "Knorr Creamy Chicken",
+          "price": "1.26"
+        },{
+          "shortDescription": "Doritos Nacho Cheese",
+          "price": "3.35"
+        },{
+          "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
+          "price": "12.00"
+        }
+      ],
+      "total": "35.35"
+    }
+	
+    output
+
+    {
+        "msg": "The receipt is invalid"
+    }
+
+
+******************************** items-price more than 2 decimal places ********************************
+
+******************************** total more than 2 decimal places ********************************
+11、
+    in parameter
+
+    {
+      "retailer": "Target",
+      "purchaseDate": "2022-01-01",
+      "purchaseTime": "13:01",
+      "items": [
+        {
+          "shortDescription": "Mountain Dew 12PK",
+          "price": "6.49"
+        },{
+          "shortDescription": "Emils Cheese Pizza",
+          "price": "12.25"
+        },{
+          "shortDescription": "Knorr Creamy Chicken",
+          "price": "1.26"
+        },{
+          "shortDescription": "Doritos Nacho Cheese",
+          "price": "3.35"
+        },{
+          "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
+          "price": "12.00"
+        }
+      ],
+      "total": "35.351"
+    }
+    
+    output
+
+    {
+        "msg": "The receipt is invalid"
+    }
+
+******************************** total more than 2 decimal places ********************************
+
+
+#################################### normal cases ####################################
+
+12、
+    in parameter
+
+    {
+      "retailer": "Target",
+      "purchaseDate": "2022-01-01",
+      "purchaseTime": "13:01",
+      "items": [
+        {
+          "shortDescription": "Mountain Dew 12PK",
+          "price": "6.49"
+        },{
+          "shortDescription": "Emils Cheese Pizza",
+          "price": "12.25"
+        },{
+          "shortDescription": "Knorr Creamy Chicken",
+          "price": "1.26"
+        },{
+          "shortDescription": "Doritos Nacho Cheese",
+          "price": "3.35"
+        },{
+          "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
+          "price": "12.00"
+        }
+      ],
+      "total": "35.35"
+    }
+    
+    out parameter
+
+    {
+        "id": "fceccc80-a7bc-4e1d-ae6d-cf7b64a90927"
+    }
+
+    Request GET interface (GET)  http://localhost:18281/receipts/fceccc80-a7bc-4e1d-ae6d-cf7b64a90927/points
+    output
+
+    {
+        "points": 28
+    }
+###########################################################################################################
+13、
+    in parameter
+
+    {
+      "retailer": "M&M Corner Market",
+      "purchaseDate": "2022-03-20",
+      "purchaseTime": "14:33",
+      "items": [
+        {
+          "shortDescription": "Gatorade",
+          "price": "2.25"
+        },{
+          "shortDescription": "Gatorade",
+          "price": "2.25"
+        },{
+          "shortDescription": "Gatorade",
+          "price": "2.25"
+        },{
+          "shortDescription": "Gatorade",
+          "price": "2.25"
+        }
+      ],
+      "total": "9.00"
+    }
+
+    out parameter
+
+    {
+        "id": "76b61f63-566b-43e3-b870-2d607e0aa5cf"
+    }
+
+    Request GET interface (GET)  http://localhost:18281/receipts/76b61f63-566b-43e3-b870-2d607e0aa5cf/points
+    output
+
+    {
+        "points": 109
+    }
+###########################################################################################################
+
+14、github  morning-receipt.json
+    in parameter
+
+    {
+        "retailer": "Walgreens",
+        "purchaseDate": "2022-01-02",
+        "purchaseTime": "08:13",
+        "total": "2.65",
+        "items": [
+            {"shortDescription": "Pepsi - 12-oz", "price": "1.25"},
+            {"shortDescription": "Dasani", "price": "1.40"}
+        ]
+    }
+
+    out parameter
+
+    {
+        "id": "b73e65d8-a7b2-4f12-b69c-846504146c0a"
+    }
+
+    Request GET interface (GET)  http://localhost:18281/receipts/b73e65d8-a7b2-4f12-b69c-846504146c0a/points
+    output
+
+    {
+        "points": 15
+    }
+
+###########################################################################################################
+
+15、github  simple-receipt.json
+    in parameter
+
+        {
+        "retailer": "Target",
+        "purchaseDate": "2022-01-02",
+        "purchaseTime": "13:13",
+        "total": "1.25",
+        "items": [
+            {"shortDescription": "Pepsi - 12-oz", "price": "1.25"}
+        ]
+    }
+
+    out parameter
+
+    {
+        "id": "ad9ac061-2e4f-4542-b2c4-30d34d0a29e1"
+    }
+
+    Request GET interface (GET)  http://localhost:18281/receipts/ad9ac061-2e4f-4542-b2c4-30d34d0a29e1/points
+    output
+
+    {
+        "points": 31
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
